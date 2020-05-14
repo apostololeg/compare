@@ -7,6 +7,9 @@ function compareObjects(obj1, obj2) {
     return obj1 === obj2;
   }
 
+  if (obj1._isAMomentObject) return obj1.isSame(obj2);
+  if (obj2._isAMomentObject) return obj2.isSame(obj1);
+
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
@@ -14,7 +17,7 @@ function compareObjects(obj1, obj2) {
   return Object.keys(obj1).every(function(key) {
     return compare(obj1[key], obj2[key]);
   });
-};
+}
 
 /**
  * Compare arrays that contains only simple data (number, string, bool)
@@ -26,9 +29,9 @@ function compareArrays(list1, list2) {
   }
 
   return list1.every(function(item, i) {
-    return compare(item, list2[i])
+    return compare(item, list2[i]);
   });
-};
+}
 
 /**
  * Function-router to campare different types
