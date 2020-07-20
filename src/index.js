@@ -14,7 +14,7 @@ function compareObjects(obj1, obj2) {
     return false;
   }
 
-  return Object.keys(obj1).every(function(key) {
+  return Object.keys(obj1).every(function (key) {
     return compare(obj1[key], obj2[key]);
   });
 }
@@ -28,7 +28,7 @@ function compareArrays(list1, list2) {
     return false;
   }
 
-  return list1.every(function(item, i) {
+  return list1.every(function (item, i) {
     return compare(item, list2[i]);
   });
 }
@@ -49,6 +49,8 @@ export default function compare(val1, val2) {
   if (Array.isArray(val1)) {
     return compareArrays(val1, val2);
   }
+
+  if (val === NaN && val2 === NaN) return true; // NaN === NaN -> false
 
   return val1 === val2;
 }
