@@ -50,7 +50,7 @@ export default function compare(val1, val2) {
     return compareArrays(val1, val2);
   }
 
-  if (val === NaN && val2 === NaN) return true; // NaN === NaN -> false
+  if (isNaN(val1) && isNaN(val2)) return true; // NaN === NaN -> false
 
   return val1 === val2;
 }
