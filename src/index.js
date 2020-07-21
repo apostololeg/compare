@@ -33,6 +33,10 @@ function compareArrays(list1, list2) {
   });
 }
 
+function _isNaN(val) {
+  return typeof val === 'number' && isNaN(val);
+}
+
 /**
  * Function-router to campare different types
  * @return {Boolean} – true if equal
@@ -50,7 +54,7 @@ export default function compare(val1, val2) {
     return compareArrays(val1, val2);
   }
 
-  if (isNaN(val1) && isNaN(val2)) return true; // NaN === NaN -> false
+  if (_isNaN(val1) && _isNaN(val2)) return true; // NaN === NaN -> false
 
   return val1 === val2;
 }
