@@ -4,7 +4,9 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js",
+    "dev": "yarn build -- --watch"
   },
   "files": [
     "src/index.js"
@@ -24,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/apostololeg/compareq/issues"
   },
-  "homepage": "https://github.com/apostololeg/compareq#readme"
+  "homepage": "https://github.com/apostololeg/compareq#readme",
+  "dependencies": {
+    "rollup": "^2.29.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-optimize-js": "^0.0.4",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
 }
